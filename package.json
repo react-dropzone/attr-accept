@@ -1,0 +1,28 @@
+{
+  "name": "attr-accept",
+  "version": "1.0.0",
+  "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okonet/attr-accept.git"
+  },
+  "keywords": [
+    "html5",
+    "input",
+    "tag",
+    "attribute",
+    "attr",
+    "accpet",
+    "file"
+  ],
+  "author": "Andrey Okonetchnikov @okonetchnikov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okonet/attr-accept/issues"
+  },
+  "homepage": "https://github.com/okonet/attr-accept#readme"
+}
