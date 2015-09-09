@@ -2,7 +2,7 @@
   "name": "attr-accept",
   "version": "1.0.0",
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register --recursive",
     "test:watch": "npm test -- --watch",
