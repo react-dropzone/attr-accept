@@ -1,7 +1,7 @@
 /* eslint no-unused-expressions: 0 */
 
 import expect from 'expect';
-import accept from '../index';
+import accept from '../src/index';
 
 describe('accept', () => {
     it('should return true if called without acceptedFiles', () => {
