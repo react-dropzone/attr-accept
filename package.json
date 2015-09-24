@@ -38,5 +38,8 @@
     "eslint-plugin-react": "^3.3.1",
     "expect": "^1.9.0",
     "mocha": "^2.3.2"
+  },
+  "engines": {
+    "node": ">=0.10"
   }
 }
