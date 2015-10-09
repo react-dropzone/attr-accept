@@ -1,5 +1,5 @@
 # attr-accept
-JavaScript implementation of the "accept" attribute for HTML5 <input type="file">
+JavaScript implementation of the "accept" attribute for HTML5 `<input type="file">`
 
 Installation
 =====
