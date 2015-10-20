@@ -6,21 +6,43 @@ import accept from '../src/index';
 describe('accept', () => {
     it('should return true if called without acceptedFiles', () => {
         expect(accept({
+            name: 'testfile.png',
             type: 'some/type'
         }, undefined)).toBe(true);
+    });
+
+    it('should not throw and return true if file is empty or null', () => {
+        expect(() => {
+            accept({});
+            accept({}, 'text/html');
+            accept({}, '*.png');
+            accept({}, 'image/*');
+
+            accept(null);
+            accept(null, 'text/html');
+            accept(null, '*.png');
+            accept(null, 'image/*');
+        }).toNotThrow();
     });
 
     it('should properly validate if called with concrete mime types', () => {
         const acceptedMimeTypes = 'text/html,image/jpeg,application/json';
         expect(accept({
+            name: 'testfile.png',
             type: 'text/html'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'image/jpeg'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'application/json'
         }, acceptedMimeTypes)).toBe(true);
+        expect(accept({
+            name: 'testfile.png',
+            type: 'image/bmp'
+        }, acceptedMimeTypes)).toBe(false);
         expect(accept({
             type: 'image/bmp'
         }, acceptedMimeTypes)).toBe(false);
@@ -29,18 +51,23 @@ describe('accept', () => {
     it('should properly validate if called with base mime types', () => {
         const acceptedMimeTypes = 'text/*,image/*,application/*';
         expect(accept({
+            name: 'testfile.png',
             type: 'text/html'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'image/jpeg'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'application/json'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'image/bmp'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'some/type'
         }, acceptedMimeTypes)).toBe(false);
     });
@@ -48,18 +75,23 @@ describe('accept', () => {
     it('should properly validate if called with mixed mime types', () => {
         const acceptedMimeTypes = 'text/*,image/jpeg,application/*';
         expect(accept({
+            name: 'testfile.png',
             type: 'text/html'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'image/jpeg'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'image/bmp'
         }, acceptedMimeTypes)).toBe(false);
         expect(accept({
+            name: 'testfile.png',
             type: 'application/json'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'some/type'
         }, acceptedMimeTypes)).toBe(false);
     });
@@ -67,9 +99,11 @@ describe('accept', () => {
     it('should properly validate even with spaces in between', () => {
         const acceptedMimeTypes = 'text/html ,   image/jpeg, application/json';
         expect(accept({
+            name: 'testfile.png',
             type: 'text/html'
         }, acceptedMimeTypes)).toBe(true);
         expect(accept({
+            name: 'testfile.png',
             type: 'image/jpeg'
         }, acceptedMimeTypes)).toBe(true);
     });
@@ -97,7 +131,7 @@ describe('accept', () => {
             type: 'random/type'
         }, acceptedMimeTypes)).toBe(false);
         expect(accept({
-            name: 'some-file file.png',
+            name: 'some-FILEi File.PNG',
             type: 'random/type'
         }, acceptedMimeTypes)).toBe(true);
     });

@@ -10,15 +10,16 @@
  */
 
 export default function(file, acceptedFiles) {
-    if (acceptedFiles) {
+    if (file && acceptedFiles) {
         const acceptedFilesArray = acceptedFiles.split(',');
-        const mimeType = file.type;
+        const fileName = file.name || '';
+        const mimeType = file.type || '';
         const baseMimeType = mimeType.replace(/\/.*$/, '');
 
         return acceptedFilesArray.some(type => {
             const validType = type.trim();
             if (validType.charAt(0) === '.') {
-                return (file.name.toLowerCase().indexOf(validType.toLowerCase(), file.name.length - validType.length) !== -1);
+                return (fileName.toLowerCase().indexOf(validType.toLowerCase(), fileName.length - validType.length) !== -1);
             } else if (/\/\*$/.test(validType)) {
                 // This is something like a image/* mime type
                 return baseMimeType === validType.replace(/\/.*$/, '');
