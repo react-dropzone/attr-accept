@@ -4,7 +4,7 @@
     output: {
       path: __dirname,
       filename: "./dist/index.js",
-      libraryTarget: "commonjs",
+      libraryTarget: "commonjs2",
       library: "react-attr"
     },
     module: {
