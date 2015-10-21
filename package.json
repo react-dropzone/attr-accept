@@ -1,6 +1,6 @@
 {
   "name": "attr-accept",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
   "main": "dist/index.js",
   "scripts": {
