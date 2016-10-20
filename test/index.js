@@ -135,4 +135,20 @@ describe('accept', () => {
             type: 'random/type'
         }, acceptedMimeTypes)).toBe(true);
     });
+
+    it('should allow accepted files passed to be an array', () => {
+        const acceptedMimeTypes = ['img/jpeg', '.pdf'];
+        expect(accept({
+            name: 'testfile.pdf',
+            type: 'random/type'
+        }, acceptedMimeTypes)).toBe(true);
+        expect(accept({
+            name: 'testfile.jpg',
+            type: 'img/jpeg'
+        }, acceptedMimeTypes)).toBe(true);
+        expect(accept({
+            name: 'testfile',
+            type: 'application/json'
+        }, acceptedMimeTypes)).toBe(false);
+    });
 });
