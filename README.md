@@ -24,4 +24,22 @@ accept({
     name: 'my file.json',
     type: 'application/json'
 }, 'image/*') // => false
+
+accept({
+    name: 'my file.srt',
+    type: ''
+}, '.srt') // => true
+```
+
+You can also pass multiple mime types as a comma delimited string or array.
+```javascript
+accept({
+    name: 'my file.json',
+    type: 'application/json'
+}, 'application/json,video/*') // => true
+
+accept({
+    name: 'my file.json',
+    type: 'application/json'
+}, ['application/json', 'video/*']) // => true
 ```
