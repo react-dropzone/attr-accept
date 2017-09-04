@@ -12,7 +12,7 @@
 import 'core-js/fn/array/some';
 import 'core-js/fn/string/ends-with';
 
-export default function(file, acceptedFiles) {
+export default function (file, acceptedFiles) {
     if (file && acceptedFiles) {
         const acceptedFilesArray = (Array.isArray(acceptedFiles) ?
             acceptedFiles :
@@ -21,7 +21,7 @@ export default function(file, acceptedFiles) {
         const mimeType = file.type || '';
         const baseMimeType = mimeType.replace(/\/.*$/, '');
 
-        return acceptedFilesArray.some(type => {
+        return acceptedFilesArray.some((type) => {
             const validType = type.trim();
             if (validType.charAt(0) === '.') {
                 return fileName.toLowerCase().endsWith(validType.toLowerCase());

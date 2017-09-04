@@ -1,11 +1,10 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "mocha": true,
     "node": true
   },
-  "plugins": ["prettier"],
   "rules": {
     "indent": [2, 4],
     "comma-dangle": [2, "never"]
