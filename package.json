@@ -6,10 +6,9 @@
     "build": "webpack -p",
     "prepublish": "npm run check && npm run build",
     "test": "mocha --compilers js:babel-core/register --recursive",
-    "format": "prettier -- --single-quote --write \"src/**/*.js\"",
     "test:watch": "npm test -- --watch",
     "lint": "eslint ./src --fix",
-    "check": "npm run format && npm run lint && npm test",
+    "check": "npm run lint && npm test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
