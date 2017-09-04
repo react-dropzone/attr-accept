@@ -9,7 +9,6 @@
  * @returns {boolean}
  */
 
-import 'core-js/fn/array/some';
 import 'core-js/fn/string/ends-with';
 
 export default function (file, acceptedFiles) {
