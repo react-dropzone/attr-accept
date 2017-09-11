@@ -1,3 +1,6 @@
+import 'core-js/fn/array/some';
+import 'core-js/fn/string/ends-with';
+
 /**
  * Check if the provided file type should be accepted by the input with accept attribute.
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-accept
@@ -8,10 +11,6 @@
  * @param acceptedFiles {string}
  * @returns {boolean}
  */
-
-import 'core-js/fn/array/some';
-import 'core-js/fn/string/ends-with';
-
 export default function(file, acceptedFiles) {
     if (file && acceptedFiles) {
         const acceptedFilesArray = (Array.isArray(acceptedFiles) ?

@@ -4,12 +4,15 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack -p",
-    "prepublish": "npm run check && npm run build",
+    "prepublish": "npm run build",
+    "pretest": "npm run lint",
     "test": "mocha --compilers js:babel/register --recursive",
+    "posttest": "npm run size",
     "test:watch": "npm test -- --watch",
     "lint": "eslint ./src",
-    "check": "npm run lint && npm test",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "size": "size-limit",
+    "size:why": "size-limit --why"
   },
   "repository": {
     "type": "git",
@@ -21,7 +24,7 @@
     "tag",
     "attribute",
     "attr",
-    "accpet",
+    "accept",
     "file"
   ],
   "author": "Andrey Okonetchnikov @okonetchnikov",
@@ -42,8 +45,9 @@
     "eslint-plugin-react": "^3.3.1",
     "expect": "^1.9.0",
     "mocha": "^2.3.2",
-    "webpack": "1.12.2",
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^4.3.5",
+    "size-limit": "^0.11.1",
+    "webpack": "1.12.2"
   },
   "engines": {
     "node": ">=0.10"
@@ -52,5 +56,11 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "size-limit": [
+    {
+      "path": "src/index.js",
+      "limit": "2 KB"
+    }
+  ]
 }
