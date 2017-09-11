@@ -9,7 +9,8 @@
     "test:watch": "npm test -- --watch",
     "lint": "eslint ./src",
     "check": "npm run lint && npm test",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -41,9 +42,11 @@
     "eslint-config-airbnb": "0.0.8",
     "eslint-plugin-react": "^3.3.1",
     "expect": "^1.9.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.1.3",
     "mocha": "^2.3.2",
-    "webpack": "1.12.2",
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^4.3.5",
+    "webpack": "1.12.2"
   },
   "engines": {
     "node": ">=0.10"
@@ -52,5 +55,11 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
