@@ -4,11 +4,11 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack -p",
-    "prepublish": "npm run check && npm run build",
+    "prepublish": "npm test && npm run build",
+    "pretest": "npm run lint",
     "test": "mocha --compilers js:babel/register --recursive",
     "test:watch": "npm test -- --watch",
-    "lint": "eslint ./src",
-    "check": "npm run lint && npm test",
+    "lint": "eslint .",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "precommit": "lint-staged"
   },
