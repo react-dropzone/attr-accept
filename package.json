@@ -2,6 +2,7 @@
   "name": "attr-accept",
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
   "main": "dist/index.js",
+  "version": "1.1.0",
   "scripts": {
     "build": "webpack -p",
     "prepublish": "npm test && npm run build",
