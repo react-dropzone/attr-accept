@@ -17,8 +17,7 @@ after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py
   - export $(cat .to_export_back) &> /dev/null
-  - npm install -g semantic-release
-  - semantic-release
+  - travis-deploy-once "npm install -g semantic-release@13 && semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
