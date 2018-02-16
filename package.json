@@ -81,6 +81,5 @@
       "path": "dist/index.js",
       "limit": "2 KB"
     }
-  ],
-  "version": "0.0.0-development"
+  ]
 }
