@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/okonet/attr-accept#readme",
   "dependencies": {
-    "core-js": "1.2.2"
+    "core-js": "^2.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -72,6 +72,5 @@
       "eslint --fix",
       "git add"
     ]
-  },
-  "version": "0.0.0-development"
+  }
 }
