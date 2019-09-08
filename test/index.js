@@ -1,5 +1,5 @@
 /* eslint no-unused-expressions: 0 */
-
+import 'core-js'
 import expect from 'expect'
 import accept from '../src/index'
 
