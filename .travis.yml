@@ -1,17 +1,21 @@
 language: node_js
-cache:
-  directories:
-    - node_modules
-notifications:
-  email: false
 node_js:
+  - lts/*
   - '8'
   - '6'
   - '4'
-before_install:
-  - npm i -g npm@^5.0.0
-after_success:
-  - travis-deploy-once "npm install -g semantic-release@13 && semantic-release"
+notifications:
+  email: false
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+jobs:
+  include:
+    - stage: release
+      node_js: lts/*
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
