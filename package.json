@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/okonet/attr-accept.git"
+    "url": "https://github.com/react-dropzone/attr-accept.git"
   },
   "keywords": [
     "html5",
@@ -28,11 +28,15 @@
     "file"
   ],
   "author": "Andrey Okonetchnikov @okonetchnikov",
+  "contributors": [
+    "Andrey Okonetchnikov <andrey@okonet.ru> (http://okonet.ru)",
+    "Roland Groza <rolandjitsu@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/okonet/attr-accept/issues"
+    "url": "https://github.com/react-dropzone/attr-accept/issues"
   },
-  "homepage": "https://github.com/okonet/attr-accept#readme",
+  "homepage": "https://github.com/react-dropzone/attr-accept#readme",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^2.1.6",
     "babel-core": "^6.26.0",
