@@ -3,6 +3,7 @@
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
   "version": "0.0.0-development",
   "main": "dist/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "webpack -p",
     "prepublish": "npm test && npm run build",
