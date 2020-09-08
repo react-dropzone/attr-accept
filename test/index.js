@@ -286,4 +286,25 @@ describe('accept', () => {
       )
     ).toBe(false)
   })
+
+  it('should check MIME types in a case insensitive way', () => {
+    expect(
+      accept(
+        {
+          name: 'testfile.xlsm',
+          type: 'application/vnd.ms-excel.sheet.macroenabled.12'
+        },
+        ['application/vnd.ms-excel.sheet.macroEnabled.12']
+      )
+    ).toBe(true)
+    expect(
+      accept(
+        {
+          name: 'testfile.xlsm',
+          type: 'application/vnd.ms-excel.sheet.macroEnabled.12'
+        },
+        ['application/vnd.ms-excel.sheet.macroenabled.12']
+      )
+    ).toBe(true)
+  })
 })

@@ -15,13 +15,13 @@ export default function(file, acceptedFiles) {
       ? acceptedFiles
       : acceptedFiles.split(',')
     const fileName = file.name || ''
-    const mimeType = file.type || ''
+    const mimeType = (file.type || '').toLowerCase()
     const baseMimeType = mimeType.replace(/\/.*$/, '')
 
     return acceptedFilesArray.some(type => {
-      const validType = type.trim()
+      const validType = type.trim().toLowerCase()
       if (validType.charAt(0) === '.') {
-        return fileName.toLowerCase().endsWith(validType.toLowerCase())
+        return fileName.toLowerCase().endsWith(validType)
       } else if (validType.endsWith('/*')) {
         // This is something like a image/* mime type
         return baseMimeType === validType.replace(/\/.*$/, '')
