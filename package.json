@@ -3,13 +3,17 @@
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
   "version": "0.0.0-development",
   "main": "dist/index.js",
-  "module": "dist/es/index.js",
+  "module": "src/index.js",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  },
   "types": "index.d.ts",
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
-    "build:cjs": "webpack -p",
-    "build:es": "cross-env BABEL_ENV=es babel ./src --out-dir ./dist/es --ignore '**/*.spec.js'",
+    "build:cjs": "webpack",
+    "build:es": "cross-env BABEL_ENV=es babel ./src/index.js --out-file ./dist/index.mjs --ignore '**/*.spec.js'",
     "prepublish": "npm test && npm run build",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:@babel/register --recursive",
@@ -80,8 +84,8 @@
     "mocha": "^3.5.0",
     "prettier": "^1.6.1",
     "rimraf": "^3.0.0",
-    "webpack": "^4.0.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": ">=4"

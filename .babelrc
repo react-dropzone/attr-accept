@@ -3,7 +3,8 @@
     [
       "env",
       {
-        "loose": true
+        "loose": true,
+        "modules": false
       }
     ]
   ]
