@@ -45,3 +45,13 @@ accept({
     type: 'application/json'
 }, ['application/json', 'video/*']) // => true
 ```
+
+ESM example:
+
+```javascript
+import accept from 'attr-accept';
+accept({
+    name: 'my file.png',
+    type: 'image/png'
+}, 'image/*') // => true
+```
