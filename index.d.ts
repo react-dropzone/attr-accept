@@ -1,1 +1,3 @@
-export default function accept(file: { name?: string, type?: string }, acceptedFiles: string | string[]): boolean;
+declare function accept(file: { name?: string, type?: string }, acceptedFiles: string | string[]): boolean;
+
+export = accept;
