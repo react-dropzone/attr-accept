@@ -3,8 +3,15 @@
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
   "version": "0.0.0-development",
   "type": "module",
-  "exports": "./src/index.js",
-  "types": "index.d.ts",
+  "exports": {
+    "types": "./index.d.ts",
+    "default": "./src/index.js"
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "src",
+    "index.d.ts"
+  ],
   "scripts": {
     "pretest": "npm run lint",
     "test": "node --test",
