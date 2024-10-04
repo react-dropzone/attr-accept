@@ -16,7 +16,7 @@ npm install --save attr-accept
 Usage
 =====
 ```javascript
-var accept = require('attr-accept');
+import accept from 'attr-accept'
 accept({
     name: 'my file.png',
     type: 'image/png'
