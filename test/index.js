@@ -1,7 +1,7 @@
-/* eslint no-unused-expressions: 0 */
-import 'core-js'
+import { describe, it } from 'node:test'
+// eslint-disable-next-line import/no-unresolved
+import accept from 'attr-accept'
 import expect from 'expect'
-import accept from '../src/index'
 
 describe('accept', () => {
   it('should return true if called without acceptedFiles', () => {
