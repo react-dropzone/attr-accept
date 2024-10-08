@@ -42,3 +42,7 @@ accept({
     type: 'application/json'
 }, ['application/json', 'video/*']) // => true
 ```
+
+## Contributing
+
+Checkout the organization [CONTRIBUTING.md](https://github.com/react-dropzone/.github/blob/main/CONTRIBUTING.md).
