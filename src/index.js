@@ -5,7 +5,7 @@
  * Inspired by https://github.com/enyo/dropzone
  *
  * @param file {File} https://developer.mozilla.org/en-US/docs/Web/API/File
- * @param acceptedFiles {string}
+ * @param acceptedFiles {string|string[]}
  * @returns {boolean}
  */
 
