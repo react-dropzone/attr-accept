@@ -1,8 +1,9 @@
 module.exports = {
+  mode: 'production',
   entry: './src/index.js',
   output: {
     path: __dirname,
-    filename: './dist/index.js',
+    filename: './dist/index.cjs',
     libraryTarget: 'commonjs2',
     library: 'react-attr'
   },

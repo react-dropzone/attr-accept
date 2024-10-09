@@ -43,6 +43,16 @@ accept({
 }, ['application/json', 'video/*']) // => true
 ```
 
+ESM example:
+
+```javascript
+import accept from 'attr-accept';
+accept({
+    name: 'my file.png',
+    type: 'image/png'
+}, 'image/*') // => true
+```
+
 ## Contributing
 
 Checkout the organization [CONTRIBUTING.md](https://github.com/react-dropzone/.github/blob/main/CONTRIBUTING.md).

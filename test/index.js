@@ -1,7 +1,6 @@
 /* eslint no-unused-expressions: 0 */
-import 'core-js'
 import expect from 'expect'
-import accept from '../src/index'
+import accept from '../src/index.js'
 
 describe('accept', () => {
   it('should return true if called without acceptedFiles', () => {
