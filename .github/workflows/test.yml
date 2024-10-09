@@ -14,12 +14,21 @@ jobs:
         node_version: [8, 10, 12]
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install
         run: npm ci
       - name: Test
         run: npm test
+
+  coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: coverallsapp/github-action@v2.3.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
