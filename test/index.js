@@ -307,4 +307,25 @@ describe('accept', () => {
       )
     ).toBe(true)
   })
+
+  it('should allow any file if the accepted files is an empty array or string', () => {
+    expect(
+      accept(
+        {
+          name: 'testfile.jpg',
+          type: 'img/jpeg'
+        },
+        ''
+      )
+    ).toBe(true)
+    expect(
+      accept(
+        {
+          name: 'testfile.pdf',
+          type: 'random/type'
+        },
+        []
+      )
+    ).toBe(true)
+  })
 })

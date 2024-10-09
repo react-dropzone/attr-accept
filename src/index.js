@@ -14,6 +14,9 @@ export default function(file, acceptedFiles) {
     const acceptedFilesArray = Array.isArray(acceptedFiles)
       ? acceptedFiles
       : acceptedFiles.split(',')
+    if (acceptedFilesArray.length === 0) {
+      return true
+    }
     const fileName = file.name || ''
     const mimeType = (file.type || '').toLowerCase()
     const baseMimeType = mimeType.replace(/\/.*$/, '')
