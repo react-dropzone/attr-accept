@@ -1,6 +1,0 @@
-{
-  "extends": "okonet",
-  "env": {
-    "browser": true
-  }
-}
