@@ -1,23 +1,24 @@
 import { describe, it } from 'node:test'
-import expect from 'expect'
+import assert from 'node:assert/strict'
 // eslint-disable-next-line import/no-unresolved
 import accept from 'attr-accept'
 
 describe('accept', () => {
   it('should return true if called without acceptedFiles', () => {
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'some/type'
         },
         undefined
-      )
-    ).toBe(true)
+      ),
+      true
+    )
   })
 
   it('should not throw and return true if file is empty or null', () => {
-    expect(() => {
+    assert.doesNotThrow(() => {
       accept({})
       accept({}, 'text/html')
       accept({}, '*.png')
@@ -27,305 +28,335 @@ describe('accept', () => {
       accept(null, 'text/html')
       accept(null, '*.png')
       accept(null, 'image/*')
-    }).toNotThrow()
+    })
   })
 
   it('should properly validate if called with concrete mime types', () => {
     const acceptedMimeTypes = 'text/html,image/jpeg,application/json'
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'text/html'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/jpeg'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'application/json'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/bmp'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
-    expect(
+      ),
+      false
+    )
+    assert.equal(
       accept(
         {
           type: 'image/bmp'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
+      ),
+      false
+    )
   })
 
   it('should properly validate if called with base mime types', () => {
     const acceptedMimeTypes = 'text/*,image/*,application/*'
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'text/html'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/jpeg'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'application/json'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/bmp'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'some/type'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
+      ),
+      false
+    )
   })
 
   it('should properly validate if called with mixed mime types', () => {
     const acceptedMimeTypes = 'text/*,image/jpeg,application/*'
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'text/html'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/jpeg'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/bmp'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
-    expect(
+      ),
+      false
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'application/json'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'some/type'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
+      ),
+      false
+    )
   })
 
   it('should properly validate even with spaces in between', () => {
     const acceptedMimeTypes = 'text/html ,   image/jpeg, application/json'
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'text/html'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.png',
           type: 'image/jpeg'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
+      ),
+      true
+    )
   })
 
   it('should properly validate extensions', () => {
     const acceptedMimeTypes = 'text/html ,    image/jpeg, .pdf  ,.png'
-    expect(
+    assert.equal(
       accept(
         {
           name: 'somxsfsd',
           type: 'text/html'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'somesdfsdf',
           type: 'image/jpeg'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'somesdfadfadf',
           type: 'application/json'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
-    expect(
+      ),
+      false
+    )
+    assert.equal(
       accept(
         {
           name: 'some-file file.pdf',
           type: 'random/type'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'some-file.pdf file.gif',
           type: 'random/type'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
-    expect(
+      ),
+      false
+    )
+    assert.equal(
       accept(
         {
           name: 'some-FILEi File.PNG',
           type: 'random/type'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
+      ),
+      true
+    )
   })
 
   it('should allow accepted files passed to be an array', () => {
     const acceptedMimeTypes = ['img/jpeg', '.pdf']
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.pdf',
           type: 'random/type'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.jpg',
           type: 'img/jpeg'
         },
         acceptedMimeTypes
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile',
           type: 'application/json'
         },
         acceptedMimeTypes
-      )
-    ).toBe(false)
+      ),
+      false
+    )
   })
 
   it('should check MIME types in a case insensitive way', () => {
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.xlsm',
           type: 'application/vnd.ms-excel.sheet.macroenabled.12'
         },
         ['application/vnd.ms-excel.sheet.macroEnabled.12']
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.xlsm',
           type: 'application/vnd.ms-excel.sheet.macroEnabled.12'
         },
         ['application/vnd.ms-excel.sheet.macroenabled.12']
-      )
-    ).toBe(true)
+      ),
+      true
+    )
   })
 
   it('should allow any file if the accepted files is an empty array or string', () => {
-    expect(
+    assert.equal(
       accept(
         {
           name: 'testfile.jpg',
           type: 'img/jpeg'
         },
         ''
-      )
-    ).toBe(true)
-    expect(
+      ),
+      true
+    )
+    assert.equal(
       accept(
         {
           name: 'testfile.pdf',
           type: 'random/type'
         },
         []
-      )
-    ).toBe(true)
+      ),
+      true
+    )
   })
 })
