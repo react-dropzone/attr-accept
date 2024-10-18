@@ -1,19 +1,25 @@
 # attr-accept
+
 > JavaScript implementation of the "accept" attribute for HTML5 `<input type="file">`
 
 [![npm](https://img.shields.io/npm/v/attr-accept.svg?style=flat-square)](https://www.npmjs.com/package/attr-accept)
 ![Tests](https://img.shields.io/github/actions/workflow/status/react-dropzone/attr-accept/test.yml?branch=master&style=flat-square&label=tests)
 
-See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#attr-accept for more information.
+See [MDN attr-accept](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#attr-accept) for more information.
 
 ## Installation
+
 ```sh
 npm install --save attr-accept
 ```
 
 ## Usage
-```javascript
-var accept = require('attr-accept');
+
+```js
+const { accept } = require('attr-accept'); 
+// or 
+import { accept } from 'attr-accept';
+
 accept({
     name: 'my file.png',
     type: 'image/png'
@@ -31,7 +37,8 @@ accept({
 ```
 
 You can also pass multiple mime types as a comma delimited string or array.
-```javascript
+
+```js
 accept({
     name: 'my file.json',
     type: 'application/json'

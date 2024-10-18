@@ -1,7 +1,6 @@
-/* eslint no-unused-expressions: 0 */
-import 'core-js'
-import expect from 'expect'
-import accept from '../src/index'
+import { describe, it } from 'mocha'
+import { expect } from 'expect'
+import { accept } from '../src/index.mjs'
 
 describe('accept', () => {
   it('should return true if called without acceptedFiles', () => {
@@ -27,7 +26,7 @@ describe('accept', () => {
       accept(null, 'text/html')
       accept(null, '*.png')
       accept(null, 'image/*')
-    }).toNotThrow()
+    }).toBeTruthy()
   })
 
   it('should properly validate if called with concrete mime types', () => {

@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [8, 10, 12]
-
+        node_version: [18, 20, 22]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node_version }}
