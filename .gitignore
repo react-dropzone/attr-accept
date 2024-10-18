@@ -35,3 +35,6 @@ Changelog.md
 
 # NPM files
 *lock.json
+
+# Parcel
+.parcel-cache

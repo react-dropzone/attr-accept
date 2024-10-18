@@ -9,7 +9,7 @@
  * @returns {boolean}
  */
 
-export default function(file, acceptedFiles) {
+export function accept(file, acceptedFiles) {
   if (file && acceptedFiles) {
     const acceptedFilesArray = Array.isArray(acceptedFiles)
       ? acceptedFiles
