@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "module": "dist/es/index.js",
   "types": "index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
