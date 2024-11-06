@@ -27,6 +27,9 @@
     "type": "git",
     "url": "https://github.com/react-dropzone/attr-accept.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "html5",
     "input",
