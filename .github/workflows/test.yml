@@ -4,31 +4,43 @@ on:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
 
 jobs:
   test:
+    name: Run tests on Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [8, 10, 12]
+        node-version: [8, 10, 12]
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node_version }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node_version }}
-      - name: Install
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
         run: npm ci
-      - name: Test
+
+      - name: Run tests
         run: npm test
 
+      - name: Collect coverage
+        uses: coverallsapp/github-action@v2
+        with:
+          flag-name: run-${{ join(matrix.*, '-') }}
+          parallel: true
+
   coverage:
+    name: Publish coverage
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: coverallsapp/github-action@v2.3.0
+      - name: Publish coverage
+        uses: coverallsapp/github-action@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
