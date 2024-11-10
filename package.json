@@ -14,7 +14,8 @@
   "scripts": {
     "prepublish": "npm test",
     "pretest": "npm run lint",
-    "test": "node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info",
     "test:watch": "node --test --watch",
     "lint": "eslint src/ test/",
     "lint:fix": "eslint --fix src/ test/",
