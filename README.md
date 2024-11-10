@@ -46,5 +46,3 @@ accept({
 ## Contributing
 
 Checkout the organization [CONTRIBUTING.md](https://github.com/react-dropzone/.github/blob/main/CONTRIBUTING.md).
-
-**NOTE** The minimum required Node version for development is v20.
