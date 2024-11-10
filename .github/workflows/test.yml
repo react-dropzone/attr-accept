@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20, 22]
+        node-version: [18, 20, 22]
 
     steps:
       - name: Checkout repository
@@ -29,20 +29,13 @@ jobs:
         run: npm ci
 
       - name: Run tests
+        if: matrix.node-version != 22
         run: npm test
 
-      - name: Collect coverage
-        uses: coverallsapp/github-action@v2
-        with:
-          flag-name: run-${{ join(matrix.*, '-') }}
-          parallel: true
+      - name: Run tests with coverage
+        if: matrix.node-version == 22
+        run: npm run test:coverage
 
-  coverage:
-    name: Publish coverage
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Publish coverage
+      - name: Collect coverage
+        if: matrix.node-version == 22
         uses: coverallsapp/github-action@v2
-        with:
-          parallel-finished: true
