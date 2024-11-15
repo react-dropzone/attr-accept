@@ -65,7 +65,7 @@
     "@babel/preset-react": "^7.6.3",
     "@babel/register": "^7.6.2",
     "@commitlint/cli": "^8.2.0",
-    "@size-limit/preset-small-lib": "^2.1.6",
+    "@size-limit/preset-small-lib": "^11.1.6",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^8.0.0",
     "babel-preset-env": "^1.6.0",
