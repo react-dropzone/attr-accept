@@ -16,8 +16,8 @@
     "test": "node --test",
     "test:coverage": "node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=lcov.info",
     "test:watch": "node --test --watch",
-    "lint": "eslint src/ test/",
-    "lint:fix": "eslint --fix src/ test/",
+    "lint": "prettier . --check && eslint .",
+    "lint:fix": "prettier --write . && eslint . --fix",
     "size": "size-limit",
     "size:why": "size-limit --why",
     "prepare": "husky"
@@ -66,7 +66,11 @@
     "node": ">=18"
   },
   "lint-staged": {
-    "*.js": "eslint --fix"
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "!(*.js)": "prettier --write --ignore-unknown"
   },
   "size-limit": [
     {
