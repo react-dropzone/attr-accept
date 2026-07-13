@@ -2,21 +2,15 @@
   "name": "attr-accept",
   "version": "0.0.0-development",
   "description": "JavaScript implementation of the \"accept\" attribute for HTML5 <input type=\"file\">",
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./package.json": "./package.json"
-  },
-  "sideEffects": false,
-  "files": ["dist", "src", "!src/**/*.spec.*"],
-  "keywords": ["html5", "input", "tag", "attribute", "attr", "accept", "file"],
+  "keywords": [
+    "accept",
+    "attr",
+    "attribute",
+    "file",
+    "html5",
+    "input",
+    "tag"
+  ],
   "homepage": "https://github.com/react-dropzone/attr-accept#readme",
   "bugs": {
     "url": "https://github.com/react-dropzone/attr-accept/issues"
@@ -31,10 +25,31 @@
     "type": "git",
     "url": "https://github.com/react-dropzone/attr-accept.git"
   },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.spec.*"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "prepare": "prek install || exit 0",
+    "hooks:install": "prek install",
+    "hooks:run": "prek run --all-files",
     "prebuild": "npm run clean",
     "build": "tsdown",
     "dev": "tsdown --watch",
@@ -63,9 +78,6 @@
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   },
-  "engines": {
-    "node": ">= 20"
-  },
   "size-limit": [
     {
       "name": "esm",
@@ -77,5 +89,8 @@
       "path": "dist/index.cjs",
       "limit": "2 kB"
     }
-  ]
+  ],
+  "engines": {
+    "node": ">= 20"
+  }
 }
