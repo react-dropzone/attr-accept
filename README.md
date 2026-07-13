@@ -1,4 +1,5 @@
 # attr-accept
+
 > JavaScript implementation of the "accept" attribute for HTML5 `<input type="file">`
 
 [![npm](https://img.shields.io/npm/v/attr-accept.svg?style=flat-square)](https://www.npmjs.com/package/attr-accept)
@@ -9,44 +10,63 @@ See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#attr-ac
 Ships as both ES modules and CommonJS with bundled TypeScript type definitions.
 
 ## Installation
+
 ```sh
 npm install --save attr-accept
 ```
 
 ## Usage
+
 ```javascript
 import accept from "attr-accept";
 
-accept({
-  name: "my file.png",
-  type: "image/png"
-}, "image/*"); // => true
+accept(
+  {
+    name: "my file.png",
+    type: "image/png"
+  },
+  "image/*"
+); // => true
 
-accept({
-  name: "my file.json",
-  type: "application/json"
-}, "image/*"); // => false
+accept(
+  {
+    name: "my file.json",
+    type: "application/json"
+  },
+  "image/*"
+); // => false
 
-accept({
-  name: "my file.srt",
-  type: ""
-}, ".srt"); // => true
+accept(
+  {
+    name: "my file.srt",
+    type: ""
+  },
+  ".srt"
+); // => true
 ```
 
 You can also pass multiple mime types as a comma delimited string or array.
-```javascript
-accept({
-  name: "my file.json",
-  type: "application/json"
-}, "application/json,video/*"); // => true
 
-accept({
-  name: "my file.json",
-  type: "application/json"
-}, ["application/json", "video/*"]); // => true
+```javascript
+accept(
+  {
+    name: "my file.json",
+    type: "application/json"
+  },
+  "application/json,video/*"
+); // => true
+
+accept(
+  {
+    name: "my file.json",
+    type: "application/json"
+  },
+  ["application/json", "video/*"]
+); // => true
 ```
 
 In a CommonJS environment, use `require` instead:
+
 ```javascript
 const accept = require("attr-accept");
 ```
