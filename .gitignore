@@ -33,6 +33,3 @@ node_modules
 # Build files
 dist
 Changelog.md
-
-# NPM files
-*lock.json

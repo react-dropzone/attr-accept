@@ -8,20 +8,53 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+
 jobs:
+  lint:
+    name: Lint, format & types
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check (tsc)
+        run: npm run type-check
+
+      - name: Lint (oxlint)
+        run: npm run lint
+
+      - name: Check formatting (oxfmt)
+        run: npm run format:check
+
+      - name: Type-aware lint (oxlint + tsgolint)
+        run: npm run lint:type-aware
+        continue-on-error: true
+
   test:
     name: Run tests on Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [10, 12, 14]
+        node-version: [20, 22, 24]
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -32,17 +65,26 @@ jobs:
         run: npm run test:cov
 
       - name: Collect coverage
+        if: matrix.node-version == 24
         uses: coverallsapp/github-action@v2
         with:
-          flag-name: run-${{ join(matrix.*, '-') }}
-          parallel: true
+          file: ./coverage/lcov.info
 
-  coverage:
-    name: Publish coverage
-    needs: test
+  size:
+    name: Check bundle size
     runs-on: ubuntu-latest
+
     steps:
-      - name: Publish coverage
-        uses: coverallsapp/github-action@v2
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
-          parallel-finished: true
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check bundle size
+        run: npm run size
