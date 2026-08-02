@@ -4,6 +4,7 @@
 
 [![npm](https://img.shields.io/npm/v/attr-accept.svg?style=flat-square)](https://www.npmjs.com/package/attr-accept)
 ![Tests](https://img.shields.io/github/actions/workflow/status/react-dropzone/attr-accept/test.yml?branch=main&style=flat-square&label=tests)
+[![coverage](https://img.shields.io/coveralls/github/react-dropzone/attr-accept/main?style=flat-square)](https://coveralls.io/github/react-dropzone/attr-accept?branch=main)
 
 See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#attr-accept for more information.
 
