@@ -68,13 +68,13 @@
   },
   "devDependencies": {
     "@size-limit/file": "^12.1.0",
-    "@types/node": "^26.1.1",
+    "@types/node": "^26.1.2",
     "@vitest/coverage-v8": "^4.1.10",
     "oxfmt": "^0.60.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^0.24.0",
     "size-limit": "^12.1.0",
-    "tsdown": "^0.22.9",
+    "tsdown": "^0.22.14",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   },
