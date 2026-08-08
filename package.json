@@ -67,7 +67,7 @@
     "size": "size-limit"
   },
   "devDependencies": {
-    "@size-limit/file": "^12.1.0",
+    "@size-limit/file": "^13.0.3",
     "@types/node": "^26.1.2",
     "@vitest/coverage-v8": "^4.1.10",
     "oxfmt": "^0.60.0",
