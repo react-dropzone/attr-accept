@@ -73,7 +73,7 @@
     "oxfmt": "^0.60.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^7.0.2001",
-    "size-limit": "^12.1.0",
+    "size-limit": "^13.0.3",
     "tsdown": "^0.22.14",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
