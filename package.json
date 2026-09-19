@@ -68,16 +68,16 @@
   },
   "devDependencies": {
     "@size-limit/file": "^13.0.3",
-    "@types/node": "^26.5.0",
+    "@types/node": "^26.6.1",
     "@vitest/coverage-v8": "^5.0.0",
-    "oxfmt": "^0.67.0",
-    "oxlint": "^1.82.0",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
     "oxlint-tsgolint": "^7.0.2001",
     "rolldown": "^1.2.0",
     "size-limit": "^13.0.3",
     "tsdown": "^0.23.0",
     "typescript": "^7.0.2",
-    "vite": "^8.0.0",
+    "vite": "^8.3.0",
     "vitest": "^5.0.0"
   },
   "size-limit": [
