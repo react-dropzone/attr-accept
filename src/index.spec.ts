@@ -1,6 +1,24 @@
 import accept from "./index";
 
 describe("accept", () => {
+  it.each([
+    {acceptedFiles: ".png,"},
+    {acceptedFiles: ", .png"},
+    {acceptedFiles: ".png, ,"},
+    {acceptedFiles: [".png", ""]},
+    {acceptedFiles: [" ", ".png"]}
+  ])("should ignore empty entries in $acceptedFiles", ({acceptedFiles}) => {
+    expect(accept({name: "document.pdf", type: ""}, acceptedFiles)).toBe(false);
+    expect(accept({name: "photo.png", type: ""}, acceptedFiles)).toBe(true);
+  });
+
+  it.each([{acceptedFiles: " , "}, {acceptedFiles: ["", " "]}])(
+    "should accept any file when all entries are empty",
+    ({acceptedFiles}) => {
+      expect(accept({name: "document.pdf", type: "application/pdf"}, acceptedFiles)).toBe(true);
+    }
+  );
+
   it("should return true if called without acceptedFiles", () => {
     expect(
       accept(

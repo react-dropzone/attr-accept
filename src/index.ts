@@ -25,7 +25,9 @@ export interface FileWithType {
  */
 export default function accept(file?: FileWithType | null, acceptedFiles?: string | string[]): boolean {
   if (file && acceptedFiles) {
-    const acceptedFilesArray = Array.isArray(acceptedFiles) ? acceptedFiles : acceptedFiles.split(",");
+    const acceptedFilesArray = (Array.isArray(acceptedFiles) ? acceptedFiles : acceptedFiles.split(",")).filter(
+      type => type.trim() !== ""
+    );
     if (acceptedFilesArray.length === 0) {
       return true;
     }
