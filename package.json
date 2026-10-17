@@ -67,14 +67,14 @@
     "size": "size-limit"
   },
   "devDependencies": {
-    "@size-limit/file": "^14.1.0",
+    "@size-limit/file": "^14.2.0",
     "@types/node": "^26.6.5",
     "@vitest/coverage-v8": "^5.0.4",
-    "oxfmt": "^0.72.0",
-    "oxlint": "^1.87.0",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
     "oxlint-tsgolint": "^7.0.2004",
     "rolldown": "^1.2.14",
-    "size-limit": "^14.1.0",
+    "size-limit": "^14.2.0",
     "tsdown": "^0.23.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4",
